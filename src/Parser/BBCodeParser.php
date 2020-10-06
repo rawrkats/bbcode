@@ -61,25 +61,20 @@ final class BBCodeParser extends Parser
             'content' => '$1'
         ],
         'link' => [
-            'pattern' => '/\[url\](.*?)\[\/url\]/s',
+            'pattern' => '/(?i)\[url\](.*?)\[\/url\]/s',
             'replace' => '<a href="$1">$1</a>',
             'content' => '$1'
         ],
         'namedlink' => [
-            'pattern' => '/\[url\=(.*?)\](.*?)\[\/url\]/s',
+            'pattern' => '/(?i)\[url\=(.*?)\](.*?)\[\/url\]/s',
             'replace' => '<a href="$1">$2</a>',
             'content' => '$2'
         ],
         'color' => [
-            'pattern' => '/(?i)\[color\=(.?)\](.*?)\[\/color]/s',
-            'replace' => '<span style="color: $1">$2</span>',
+            'pattern' => '/(?i)\[color\=(.*?)\](.*?)\[\/color\]/s',
+            'replace' => '<span style="color\: $1">$2</span>',
             'content' => '$2'
-            ],
-        'color2' => [
-            'pattern' => '/(?i)\[COLOR\=(.?)\](.*?)\[\/COLOR]/s',
-            'replace' => '<span style="color: $1">$2</span>',
-            'content' => '$2'
-            ],
+        ],
         'size' => [
             'pattern' => '/(?i)\[size\=(.*?)\](.*?)\[\/size]/s',
             'replace' => '<h$1>$2</h$1>',
