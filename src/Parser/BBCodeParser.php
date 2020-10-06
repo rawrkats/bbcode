@@ -72,7 +72,7 @@ final class BBCodeParser extends Parser
         ],
         'color' => [
             'pattern' => '/(?i)\[color\=(.*?)\](.*?)\[\/color\]/s',
-            'replace' => '<span style="color\: $1">$2</span>',
+            'replace' => '<span style="color: $1">$2</span>',
             'content' => '$2'
         ],
         'size' => [
