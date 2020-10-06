@@ -36,27 +36,27 @@ final class BBCodeParser extends Parser
             'content' => '$1'
         ],
         'bold' => [
-            'pattern' => '/\[b\](.*?)\[\/b\]/s',
+            'pattern' => '/(?i)\[b\](.*?)\[\/b\]/s',
             'replace' => '<b>$1</b>',
             'content' => '$1'
         ],
         'italic' => [
-            'pattern' => '/\[i\](.*?)\[\/i\]/s',
+            'pattern' => '/(?i)\[i\](.*?)\[\/i\]/s',
             'replace' => '<i>$1</i>',
             'content' => '$1'
         ],
         'underline' => [
-            'pattern' => '/\[u\](.*?)\[\/u\]/s',
+            'pattern' => '/(?i)\[u\](.*?)\[\/u\]/s',
             'replace' => '<u>$1</u>',
             'content' => '$1'
         ],
         'strikethrough' => [
-            'pattern' => '/\[s\](.*?)\[\/s\]/s',
+            'pattern' => '/(?i)\[s\](.*?)\[\/s\]/s',
             'replace' => '<s>$1</s>',
             'content' => '$1'
         ],
         'quote' => [
-            'pattern' => '/\[quote\](.*?)\[\/quote\]/s',
+            'pattern' => '/(?i)\[quote\](.*?)\[\/quote\]/s',
             'replace' => '<blockquote>$1</blockquote>',
             'content' => '$1'
         ],
@@ -70,6 +70,16 @@ final class BBCodeParser extends Parser
             'replace' => '<a href="$1">$2</a>',
             'content' => '$2'
         ],
+        'color' => [
+            'pattern' => '/(?i)\[color\=(.?)\](.*?)\[\/color]/s',
+            'replace' => '<span style="color: $1">$2</span>',
+            'content' '$2'
+            ],
+        'size' => [
+            'pattern' => '/(?i)\[size\=(.*?)\](.*?)\[\/size]/s',
+            'replace' => '<h$1>$2</h$1>',
+            'content' => '$2'
+            ],
         'image' => [
             'pattern' => '/\[img\](.*?)\[\/img\]/s',
             'replace' => '<img src="$1">',
