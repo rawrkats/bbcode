@@ -5,108 +5,109 @@ namespace Genert\BBCode\Parser;
 final class BBCodeParser extends Parser
 {
     protected $parsers = [
-        'quote' => [
-            'pattern' => '/(?i)\[quote(.*?)\](.*?)\[\/quote\]/s',
-            'replace' => '<p class="quoted">$1<blockquote class="blockquote">$2</blockquote></p>',
+        'quote3' => [
+            'pattern' => '/\[QUOTE="(.*?)"\](.*?)\[\/QUOTE\]/is',
+            'replace' => '<div class="quoted">$1<blockquote class="blockquote">$2</blockquote></div>',
             'content' => '$2'
         ],
+
         'quote2' => [
-            'pattern' => '/(?i)\[QUOTE=(.*?)\](.*?)\[\/QUOTE\]/s',
-            'replace' => '<p class="quoted">$1<blockquote class="blockquote">$2</blockquote></p>',
+            'pattern' => '/\[quote\](.*?)\[\/quote\]/is',
+            'replace' => '<div class="quoted"><blockquote class="blockquote">$1</blockquote></div>',
+            'content' => '$1'
+        ],
+        'quote' => [
+            'pattern' => '/\[quote=(.*?)\](.*?)\[\/quote\]/is',
+            'replace' => '<div class="quoted">$1<blockquote class="blockquote">$2</blockquote></div>',
             'content' => '$2'
         ],
         'h1' => [
-            'pattern' => '/\[h1\](.*?)\[\/h1\]/s',
+            'pattern' => '/\[h1\](.*?)\[\/h1\]/is',
             'replace' => '<h1>$1</h1>',
             'content' => '$1'
         ],
         'h2' => [
-            'pattern' => '/\[h2\](.*?)\[\/h2\]/s',
+            'pattern' => '/\[h2\](.*?)\[\/h2\]/is',
             'replace' => '<h2>$1</h2>',
             'content' => '$1'
         ],
         'h3' => [
-            'pattern' => '/\[h3\](.*?)\[\/h3\]/s',
+            'pattern' => '/\[h3\](.*?)\[\/h3\]/is',
             'replace' => '<h3>$1</h3>',
             'content' => '$1'
         ],
         'h4' => [
-            'pattern' => '/\[h4\](.*?)\[\/h4\]/s',
+            'pattern' => '/\[h4\](.*?)\[\/h4\]/is',
             'replace' => '<h4>$1</h4>',
             'content' => '$1'
         ],
         'h5' => [
-            'pattern' => '/\[h5\](.*?)\[\/h5\]/s',
+            'pattern' => '/\[h5\](.*?)\[\/h5\]/is',
             'replace' => '<h5>$1</h5>',
             'content' => '$1'
         ],
         'h6' => [
-            'pattern' => '/\[h6\](.*?)\[\/h6\]/s',
+            'pattern' => '/\[h6\](.*?)\[\/h6\]/is',
             'replace' => '<h6>$1</h6>',
             'content' => '$1'
         ],
         'bold' => [
-            'pattern' => '/(?i)\[b\](.*?)\[\/b\]/s',
+            'pattern' => '/\[b\](.*?)\[\/b\]/is',
             'replace' => '<b>$1</b>',
             'content' => '$1'
         ],
         'italic' => [
-            'pattern' => '/(?i)\[i\](.*?)\[\/i\]/s',
+            'pattern' => '/\[i\](.*?)\[\/i\]/is',
             'replace' => '<i>$1</i>',
             'content' => '$1'
         ],
         'underline' => [
-            'pattern' => '/(?i)\[u\](.*?)\[\/u\]/s',
+            'pattern' => '/\[u\](.*?)\[\/u\]/is',
             'replace' => '<u>$1</u>',
             'content' => '$1'
         ],
         'strikethrough' => [
-            'pattern' => '/(?i)\[s\](.*?)\[\/s\]/s',
+            'pattern' => '/\[s\](.*?)\[\/s\]/is',
             'replace' => '<s>$1</s>',
             'content' => '$1'
         ],
-        'quote' => [
-            'pattern' => '/(?i)\[quote\](.*?)\[\/quote\]/s',
-            'replace' => '<blockquote>$1</blockquote>',
-            'content' => '$1'
-        ],
         'link' => [
-            'pattern' => '/(?i)\[url\](.*?)\[\/url\]/s',
+            'pattern' => '/\[url\](.*?)\[\/url\]/is',
             'replace' => '<a href="$1">$1</a>',
             'content' => '$1'
         ],
         'namedlink' => [
-            'pattern' => '/(?i)\[url\=(.*?)\](.*?)\[\/url\]/s',
+            'pattern' => '/\[url\=(.*?)\](.*?)\[\/url\]/is',
             'replace' => '<a href="$1">$2</a>',
             'content' => '$2'
         ],
         'color' => [
-            'pattern' => '/(?i)\[color\=(.*?)\](.*?)\[\/color\]/s',
+            'pattern' => '/\[color\=(.*?)\](.*?)\[\/color\]/is',
             'replace' => '<span style="color: $1">$2</span>',
             'content' => '$2'
         ],
         'size' => [
-            'pattern' => '/(?i)\[size\=(.*?)\](.*?)\[\/size]/s',
+            'pattern' => '/\[size\=(.*?)\](.*?)\[\/size]/is',
             'replace' => '<h$1>$2</h$1>',
             'content' => '$2'
             ],
         'image' => [
-            'pattern' => '/\[img\](.*?)\[\/img\]/s',
+            'pattern' => '/\[img\](.*?)\[\/img\]/is',
             'replace' => '<img src="$1">',
             'content' => '$1'
         ],
         'orderedlistnumerical' => [
-            'pattern' => '/\[list=1\](.*?)\[\/list\]/s',
+            'pattern' => '/\[list=1\](.*?)\[\/list\]/is',
             'replace' => '<ol>$1</ol>',
             'content' => '$1'
         ],
         'orderedlistalpha' => [
-            'pattern' => '/\[list=a\](.*?)\[\/list\]/s',
+            'pattern' => '/\[list=a\](.*?)\[\/list\]/is',
             'replace' => '<ol type="a">$1</ol>',
             'content' => '$1'
         ],
         'unorderedlist' => [
-            'pattern' => '/\[list\](.*?)\[\/list\]/s',
+            'pattern' => '/\[list\](.*?)\[\/list\]/is',
             'replace' => '<ul>$1</ul>',
             'content' => '$1'
         ],
@@ -116,52 +117,52 @@ final class BBCodeParser extends Parser
             'content' => '$1'
         ],
         'code' => [
-            'pattern' => '/\[code\](.*?)\[\/code\]/s',
+            'pattern' => '/\[code\](.*?)\[\/code\]/is',
             'replace' => '<code>$1</code>',
             'content' => '$1'
         ],
         'youtube' => [
-            'pattern' => '/\[youtube\](.*?)\[\/youtube\]/s',
+            'pattern' => '/\[youtube\](.*?)\[\/youtube\]/is',
             'replace' => '<iframe width="560" height="315" src="//www.youtube-nocookie.com/embed/$1" frameborder="0" allowfullscreen></iframe>',
             'content' => '$1'
         ],
         'sub' => [
-            'pattern' => '/\[sub\](.*?)\[\/sub\]/s',
+            'pattern' => '/\[sub\](.*?)\[\/sub\]/is',
             'replace' => '<sub>$1</sub>',
             'content' => '$1'
         ],
         'sup' => [
-            'pattern' => '/\[sup\](.*?)\[\/sup\]/s',
+            'pattern' => '/\[sup\](.*?)\[\/sup\]/is',
             'replace' => '<sup>$1</sup>',
             'content' => '$1'
         ],
         'small' => [
-            'pattern' => '/\[small\](.*?)\[\/small\]/s',
+            'pattern' => '/\[small\](.*?)\[\/small\]/is',
             'replace' => '<small>$1</small>',
             'content' => '$1'
         ],
         'table' => [
-            'pattern' => '/\[table\](.*?)\[\/table\]/s',
+            'pattern' => '/\[table\](.*?)\[\/table\]/is',
             'replace' => '<table>$1</table>',
             'content' => '$1',
         ],
         'table-row' => [
-            'pattern' => '/\[tr\](.*?)\[\/tr\]/s',
+            'pattern' => '/\[tr\](.*?)\[\/tr\]/is',
             'replace' => '<tr>$1</tr>',
             'content' => '$1',
         ],
         'table-data' => [
-            'pattern' => '/\[td\](.*?)\[\/td\]/s',
+            'pattern' => '/\[td\](.*?)\[\/td\]/is',
             'replace' => '<td>$1</td>',
             'content' => '$1',
         ],
         'center' => [
-            'pattern' => '/(?i)\[center\](.*?)\[\/center\]/s',
+            'pattern' => '/\[center\](.*?)\[\/center\]/is',
             'replace' => '<div class="text-center">$1</div>',
             'content' => '$1',
         ],
         'left' => [
-            'pattern' => '/(?i)\[left\](.*?)\[\/left\]/s',
+            'pattern' => '/\[left\](.*?)\[\/left\]/is',
             'replace' => '<div class="text-left">$1</div>',
             'content' => '$1',
         ]
