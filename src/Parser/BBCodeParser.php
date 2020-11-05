@@ -5,6 +5,16 @@ namespace Genert\BBCode\Parser;
 final class BBCodeParser extends Parser
 {
     protected $parsers = [
+        'quote' => [
+            'pattern' => '/(?i)\[quote(.*?)\](.*?)\[\/quote\]/s',
+            'replace' => '<p class="quoted">$1<blockquote class="blockquote">$2</blockquote></p>',
+            'content' => '$2'
+        ],
+        'quote2' => [
+            'pattern' => '/(?i)\[QUOTE=(.*?)\](.*?)\[\/QUOTE\]/s',
+            'replace' => '<p class="quoted">$1<blockquote class="blockquote">$2</blockquote></p>',
+            'content' => '$2'
+        ],
         'h1' => [
             'pattern' => '/\[h1\](.*?)\[\/h1\]/s',
             'replace' => '<h1>$1</h1>',
@@ -36,40 +46,50 @@ final class BBCodeParser extends Parser
             'content' => '$1'
         ],
         'bold' => [
-            'pattern' => '/\[b\](.*?)\[\/b\]/s',
+            'pattern' => '/(?i)\[b\](.*?)\[\/b\]/s',
             'replace' => '<b>$1</b>',
             'content' => '$1'
         ],
         'italic' => [
-            'pattern' => '/\[i\](.*?)\[\/i\]/s',
+            'pattern' => '/(?i)\[i\](.*?)\[\/i\]/s',
             'replace' => '<i>$1</i>',
             'content' => '$1'
         ],
         'underline' => [
-            'pattern' => '/\[u\](.*?)\[\/u\]/s',
+            'pattern' => '/(?i)\[u\](.*?)\[\/u\]/s',
             'replace' => '<u>$1</u>',
             'content' => '$1'
         ],
         'strikethrough' => [
-            'pattern' => '/\[s\](.*?)\[\/s\]/s',
+            'pattern' => '/(?i)\[s\](.*?)\[\/s\]/s',
             'replace' => '<s>$1</s>',
             'content' => '$1'
         ],
         'quote' => [
-            'pattern' => '/\[quote\](.*?)\[\/quote\]/s',
+            'pattern' => '/(?i)\[quote\](.*?)\[\/quote\]/s',
             'replace' => '<blockquote>$1</blockquote>',
             'content' => '$1'
         ],
         'link' => [
-            'pattern' => '/\[url\](.*?)\[\/url\]/s',
+            'pattern' => '/(?i)\[url\](.*?)\[\/url\]/s',
             'replace' => '<a href="$1">$1</a>',
             'content' => '$1'
         ],
         'namedlink' => [
-            'pattern' => '/\[url\=(.*?)\](.*?)\[\/url\]/s',
+            'pattern' => '/(?i)\[url\=(.*?)\](.*?)\[\/url\]/s',
             'replace' => '<a href="$1">$2</a>',
             'content' => '$2'
         ],
+        'color' => [
+            'pattern' => '/(?i)\[color\=(.*?)\](.*?)\[\/color\]/s',
+            'replace' => '<span style="color: $1">$2</span>',
+            'content' => '$2'
+        ],
+        'size' => [
+            'pattern' => '/(?i)\[size\=(.*?)\](.*?)\[\/size]/s',
+            'replace' => '<h$1>$2</h$1>',
+            'content' => '$2'
+            ],
         'image' => [
             'pattern' => '/\[img\](.*?)\[\/img\]/s',
             'replace' => '<img src="$1">',
@@ -135,6 +155,16 @@ final class BBCodeParser extends Parser
             'replace' => '<td>$1</td>',
             'content' => '$1',
         ],
+        'center' => [
+            'pattern' => '/(?i)\[center\](.*?)\[\/center\]/s',
+            'replace' => '<div class="text-center">$1</div>',
+            'content' => '$1',
+        ],
+        'left' => [
+            'pattern' => '/(?i)\[left\](.*?)\[\/left\]/s',
+            'replace' => '<div class="text-left">$1</div>',
+            'content' => '$1',
+        ]
     ];
 
     public function stripTags(string $source): string
