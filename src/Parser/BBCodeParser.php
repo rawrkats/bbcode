@@ -10,7 +10,16 @@ final class BBCodeParser extends Parser
             'replace' => '<div class="quoted">$1<blockquote class="blockquote">$2</blockquote></div>',
             'content' => '$2'
         ],
-
+        'font' => [
+            'pattern' => '/\[font="(.*?)"\](.*?)\[\/font\]/is',
+            'replace' => '<span style="font-family: $1">$2</span>',
+            'content' => '$2'
+        ],
+        'font2' => [
+            'pattern' => '/\[font=(.*?)\](.*?)\[\/font\]/is',
+            'replace' => '<span style="font-family: $1">$2</span>',
+            'content' => '$2'
+        ],
         'quote2' => [
             'pattern' => '/\[quote\](.*?)\[\/quote\]/is',
             'replace' => '<div class="quoted"><blockquote class="blockquote">$1</blockquote></div>',
