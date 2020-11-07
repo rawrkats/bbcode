@@ -1,23 +1,23 @@
 {
-    "name": "genert/bbcode",
+    "name": "rawrkats/bbcode",
     "description": "BBCode parser from or to HTML.",
     "keywords": ["bbcode", "parser", "laravel", "psr-1", "psr-2", "psr-4"],
     "type": "library",
     "license": "MIT",
     "authors": [
         {
-            "name": "Genert Org",
-            "email": "hi@genert.org",
-            "homepage": "http://genert.org"
+            "name": "rawrkats",
+            "email": "vexiphne@gmail.com",
+            "homepage": "https://github.com/rawrkats/bbcode"
         }
     ],
     "autoload": {
         "psr-4": {
-            "Genert\\BBCode\\": "src/"
+            "Rawrkats\\BBCode\\": "src/"
         }
     },
     "support": {
-        "issues": "https://github.com/Genert/bbcode/issues"
+        "issues": "https://github.com/rawrkats/bbcode/issues"
     },
     "minimum-stability": "stable",
     "require": {},
@@ -30,10 +30,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Genert\\BBCode\\BBCodeServiceProvider"
+                "Rawrkats\\BBCode\\BBCodeServiceProvider"
             ],
             "aliases": {
-                "Invoice": "Genert\\BBCode\\Facades\\BBCode"
+                "Invoice": "Rawrkats\\BBCode\\Facades\\BBCode"
             }
         }
     }
