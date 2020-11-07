@@ -1,6 +1,6 @@
 <?php
 
-namespace Genert\BBCode\Parser;
+namespace Rawrkats\BBCode\Parser;
 
 class Parser
 {

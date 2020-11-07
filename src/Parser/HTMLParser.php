@@ -1,6 +1,6 @@
 <?php
 
-namespace Genert\BBCode\Parser;
+namespace Rawrkats\BBCode\Parser;
 
 final class HTMLParser extends Parser
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Genert\BBCode;
+namespace Rawrkats\BBCode;
 
 use Illuminate\Support\ServiceProvider;
 

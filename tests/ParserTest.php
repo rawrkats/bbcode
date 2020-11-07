@@ -1,7 +1,7 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
-use Genert\BBCode\BBCode;
+use Rawrkats\BBCode\BBCode;
 
 /**
  * Class ParserTest
@@ -191,7 +191,7 @@ class ParserTest extends TestCase
         $this->assertEquals($output, $bbCode->convertToHtml($input));
     }
 
-    // https://github.com/Genert/bbcode/issues/2
+    // https://github.com/Rawrkats/bbcode/issues/2
     public function testCustomBulletsListBBCodeConversion()
     {
         $bbCode = new BBCode();
@@ -315,8 +315,8 @@ class ParserTest extends TestCase
         $bbCode = new BBCode();
 
         $this->assertEquals(
-            $bbCode->convertFromHtml('This<strong> </strong><a href="http://genert.org"><strong>is</strong> <i>&lt;b&gt;test&lt;/b&gt;&lt;strong&gt;&lt;/strong&gt;&lt;strong</i>&gt;&lt;<u>/stro</u>ng&gt;</a>'),
-            'This[b] [/b][url=http://genert.org][b]is[/b] [i]&lt;b&gt;test&lt;/b&gt;&lt;strong&gt;&lt;/strong&gt;&lt;strong[/i]&gt;&lt;[u]/stro[/u]ng&gt;[/url]'
+            $bbCode->convertFromHtml('This<strong> </strong><a href="http://Rawrkats.org"><strong>is</strong> <i>&lt;b&gt;test&lt;/b&gt;&lt;strong&gt;&lt;/strong&gt;&lt;strong</i>&gt;&lt;<u>/stro</u>ng&gt;</a>'),
+            'This[b] [/b][url=http://Rawrkats.org][b]is[/b] [i]&lt;b&gt;test&lt;/b&gt;&lt;strong&gt;&lt;/strong&gt;&lt;strong[/i]&gt;&lt;[u]/stro[/u]ng&gt;[/url]'
         );
     }
 
